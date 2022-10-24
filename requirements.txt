@@ -1,2 +1,2 @@
-Django
-rest_framework
+Django==4.1
+rest_framework==22.3
