@@ -1,9 +1,5 @@
-from msilib.schema import ServiceInstall
-from django.shortcuts import render
-from rest_framework.response import Response
 from rest_framework import generics, permissions, status
 from rest_framework.views import APIView
-from .models import *
 from .permissions import IsNewsEditor
 from .serializers import *
 from rest_framework.exceptions import PermissionDenied
