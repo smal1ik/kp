@@ -1,1 +1,1 @@
-web: gunicorn app:server
+web: pipenv run python backend/manage.py runserver 0.0.0.0:$PORT
