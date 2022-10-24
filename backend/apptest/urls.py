@@ -1,7 +1,7 @@
 from django.urls import path, include
-from .views import *
+from backend.apptest.views import *
 #from rest_framework.authtoken.views import obtain_auth_token
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+# from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
     path('auth/', include('djoser.urls')),     
