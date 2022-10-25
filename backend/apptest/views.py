@@ -119,10 +119,10 @@ class WorkerListView(APIView):
 # WORKERS
 # all
 class WorkerListView(generics.ListAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = []
     queryset = Worker.objects.all()
     serializer_class = WorkerSerializer
-    renderer_classes = [JSONRenderer]
+    # renderer_classes = [JSONRenderer]
 
 
 
