@@ -22,7 +22,7 @@ from rest_framework.response import Response
 #     return Response(content)
 
 class TestView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = []
 
     def get(self, request):
         return Response({f'key': 'test'})
@@ -120,6 +120,8 @@ class WorkerListView(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
     queryset = Worker.objects.all()
     serializer_class = WorkerSerializer
+    def getJson(self):
+        return
 
 
 # one
