@@ -25,7 +25,7 @@ class TestView(APIView):
     permission_classes = []
 
     def get(self, request):
-        return Response({f'key': 'test'})
+        return JsonResponse({f'key': 'test'})
 
 
 class GetRolesView(APIView):
