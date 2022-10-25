@@ -1,4 +1,5 @@
 from rest_framework import generics, permissions, status
+
 from rest_framework.views import APIView
 from .permissions import IsNewsEditor
 from .serializers import *
@@ -9,6 +10,7 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
 from rest_framework.response import Response
+from rest_framework.renderers import JSONRenderer
 
 
 # Create your views here.
@@ -117,11 +119,12 @@ class WorkerListView(APIView):
 # WORKERS
 # all
 class WorkerListView(generics.ListAPIView):
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     queryset = Worker.objects.all()
     serializer_class = WorkerSerializer
-    def getJson(self):
-        return
+    renderer_classes = [JSONRenderer]
+
+
 
 
 # one
@@ -154,6 +157,8 @@ class WorkerCreateView(generics.CreateAPIView):
 class OtherWorkerListView(generics.ListAPIView):
     queryset = OtherWorker.objects.all()
     serializer_class = OtherWorkerSerializer
+
+
 
 
 # one
