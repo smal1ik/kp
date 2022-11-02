@@ -126,7 +126,6 @@ class WorkerListView(generics.ListAPIView):
 
 
 
-
 # one
 class WorkerRetrieveView(generics.RetrieveAPIView):
     permission_classes = [IsAuthenticated]
@@ -297,3 +296,9 @@ class PostsDeleteView(generics.DestroyAPIView):
     permission_classes = [IsAuthenticated, IsNewsEditor]
     queryset = Post.objects.all()
     serializer_class = CreatePostsSerializer
+
+
+
+
+
+
