@@ -60,8 +60,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'kportal.urls'
@@ -145,7 +143,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
-    "http://192.168.0.103:8080",
+    "http://192.168.0.102:8080",
+    "https://kpfront1.herokuapp.com",
+]
+
+CORS_ORIGIN_WHITELIST = [
+    "http://192.168.0.102:8080",
+    "http://localhost:8080",
+    "https://kpfront1.herokuapp.com",
 ]
 
 CORS_ALLOW_METHODS = [
@@ -190,7 +195,7 @@ JWT_AUTH = {
     'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7)  # default
 }
 
-DOMAIN = '192.168.0.103:8080'
+DOMAIN = '192.168.0.102:8080'
 
 SITE_NAME = 'АЛАНС'
 
@@ -203,10 +208,7 @@ DJOSER = {
     'TOKEN_MODEL': None
 }
 
-CORS_ORIGIN_WHITELIST = [
-    "http://192.168.0.103:8080",
-    "http://localhost:8080",
-]
+
 
 #Настройки почты
 EMAIL_HOST = 'smtp.gmail.com'
