@@ -119,7 +119,7 @@ class WorkerListView(APIView):
 # WORKERS
 # all
 class WorkerListView(generics.ListAPIView):
-    permission_classes = [IsAndroidApp or IsAuthenticated]
+    permission_classes = [IsAndroidApp|IsAuthenticated]
     queryset = Worker.objects.all()
     serializer_class = WorkerSerializer
     # renderer_classes = [JSONRenderer]
