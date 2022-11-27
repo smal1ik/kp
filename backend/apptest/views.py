@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions, status
 
 from rest_framework.views import APIView
-from .permissions import IsNewsEditor
+from .permissions import IsNewsEditor, IsAndroidApp
 from .serializers import *
 from rest_framework.exceptions import PermissionDenied
 from django.db.models import Q
@@ -119,7 +119,7 @@ class WorkerListView(APIView):
 # WORKERS
 # all
 class WorkerListView(generics.ListAPIView):
-    permission_classes = []
+    permission_classes = [IsAndroidApp or IsAuthenticated]
     queryset = Worker.objects.all()
     serializer_class = WorkerSerializer
     # renderer_classes = [JSONRenderer]

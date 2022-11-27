@@ -27,7 +27,7 @@ urlpatterns = [
     path('user_settings/<int:pk>/', UserSettingsRetrieveView.as_view()),
     path('user_settings/new/', UserSettingsCreateView.as_view()),
 
-    path('workers/all/', WorkerListView.as_view()),
+    path('workers/al<str:pk>', WorkerListView.as_view()),
     # path('workers/update/<int:pk>', WorkerUpdateView.as_view()),
     path('workers/<int:pk>/', WorkerRetrieveView.as_view()),
     # path('workers/new/', WorkerCreateView.as_view()),
