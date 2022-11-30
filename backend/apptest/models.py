@@ -25,25 +25,29 @@ class UserSetting(models.Model):
         verbose_name_plural = "Настройки пользователей"
 
 class Worker(models.Model):
-    #user = models.ForeignKey(User, on_delete==models.CASCADE)
-    #id #` integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+    # user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    # id = integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+
     display_name = models.CharField(max_length=200) # отображаемое ФИО` varchar(200) DEFAULT '0',
     last_name = models.CharField(max_length=200) # фамлия` varchar(200) DEFAULT '0',
     first_name = models.CharField(max_length=200) # имя` varchar(200) DEFAULT '0',
     middle_name = models.CharField(max_length=200, null=True) # отчество` varchar(200) DEFAULT '0',
     department = models.CharField(max_length=255, null=True) # подразделение` varchar(255) DEFAULT '0',
+    post = models.CharField(max_length=255, null=True)  # должность` varchar(255) DEFAULT '0',
+    inner_phone = models.CharField(max_length=200, null=True)  # внутренний телефон` varchar(200) DEFAULT '0',
+    outer_phone = models.CharField(max_length=200, null=True)  # городской телефон` varchar(200) DEFAULT '0',
+    mobile_phone = models.CharField(max_length=200, null=True)  # мобильный` varchar(200) DEFAULT '0'
     mail = models.CharField(max_length=200, null=True) # email` varchar(200) DEFAULT '0',
-    inner_phone = models.CharField(max_length=200, null=True) # внутренний телефон` varchar(200) DEFAULT '0',
-    outer_phone = models.CharField(max_length=200, null=True) # городской телефон` varchar(200) DEFAULT '0',
-    mobile_phone = models.CharField(max_length=200, null=True) # мобильный` varchar(200) DEFAULT '0',
-    post = models.CharField(max_length=255, null=True) # должность` varchar(255) DEFAULT '0',
+    account_name = models.CharField(max_length=200, null=True)  # логин` varchar(200) DEFAULT '0',
+    birth_date = models.CharField(max_length=200, null=True)  # день рождения` varchar(200) DEFAULT '0',
     room = models.CharField(max_length=50, null=True) # кабинет` varchar(50) DEFAULT '0',
-    birth_date = models.CharField(max_length=200, null=True) # день рождения` varchar(200) DEFAULT '0',
-    account_name = models.CharField(max_length=200, null=True) #логин` varchar(200) DEFAULT '0',
-    gender = models.CharField(max_length=20) # пол` varchar(20) DEFAULT '0'
+    state = models.BooleanField(default=True)  # True - активный работник, False - уволен, не работает
+    isHidden = models.BooleanField(default=False)# False - не скрыт, True - скрыт
+    moreInfo = models.CharField(max_length=200, null=True)
 
     def __str__(self):
-        return "User: {}, phone {}".format(self.display_name, self.inner_phone)
+        print(self.display_name)
+        return self.display_name
     class Meta:
         verbose_name = "Сотрудник"
         verbose_name_plural = "Сотрудники"
@@ -57,20 +61,23 @@ class OtherWorker(models.Model):
 
     #user = models.ForeignKey(User, on_delete==models.CASCADE)
     #id #` integer NOT NULL PRIMARY KEY AUTOINCREMENT,
-    display_name = models.CharField(max_length=200) # отображаемое ФИО` varchar(200) DEFAULT '0',
-    last_name = models.CharField(max_length=200) # фамлия` varchar(200) DEFAULT '0',
-    first_name = models.CharField(max_length=200) # имя` varchar(200) DEFAULT '0',
-    middle_name = models.CharField(max_length=200, null=True, blank=True) # отчество` varchar(200) DEFAULT '0',
-    department = models.CharField(max_length=255, null=True, blank=True) # подразделение` varchar(255) DEFAULT '0',
-    mail = models.CharField(max_length=200, null=True, blank=True) # email` varchar(200) DEFAULT '0',
-    inner_phone = models.CharField(max_length=200, null=True, blank=True) # внутренний телефон` varchar(200) DEFAULT '0',
-    outer_phone = models.CharField(max_length=200, null=True, blank=True) # городской телефон` varchar(200) DEFAULT '0',
-    mobile_phone = models.CharField(max_length=200, null=True, blank=True) # мобильный` varchar(200) DEFAULT '0',
-    post = models.CharField(max_length=255, null=True, blank=True) # должность` varchar(255) DEFAULT '0',
-    room = models.CharField(max_length=50, null=True, blank=True) # кабинет` varchar(50) DEFAULT '0',
-    birth_date = models.CharField(max_length=200, null=True, blank=True) # день рождения` varchar(200) DEFAULT '0',
-    account_name = models.CharField(max_length=200, null=True, blank=True) #логин` varchar(200) DEFAULT '0',
-    gender = models.CharField(choices=GENDER_TYPES, default=1, max_length=1)
+    display_name = models.CharField(max_length=200)  # отображаемое ФИО` varchar(200) DEFAULT '0',
+    last_name = models.CharField(max_length=200)  # фамлия` varchar(200) DEFAULT '0',
+    first_name = models.CharField(max_length=200)  # имя` varchar(200) DEFAULT '0',
+    middle_name = models.CharField(max_length=200, null=True)  # отчество` varchar(200) DEFAULT '0',
+    department = models.CharField(max_length=255, null=True)  # подразделение` varchar(255) DEFAULT '0',
+    mail = models.CharField(max_length=200, null=True)  # email` varchar(200) DEFAULT '0',
+    inner_phone = models.CharField(max_length=200, null=True)  # внутренний телефон` varchar(200) DEFAULT '0',
+    outer_phone = models.CharField(max_length=200, null=True)  # городской телефон` varchar(200) DEFAULT '0',
+    mobile_phone = models.CharField(max_length=200, null=True)  # мобильный` varchar(200) DEFAULT '0',
+    post = models.CharField(max_length=255, null=True)  # должность` varchar(255) DEFAULT '0',
+    room = models.CharField(max_length=50, null=True)  # кабинет` varchar(50) DEFAULT '0',
+    birth_date = models.CharField(max_length=200, null=True)  # день рождения` varchar(200) DEFAULT '0',
+    account_name = models.CharField(max_length=200, null=True)  # логин` varchar(200) DEFAULT '0',
+    isHidden = models.BooleanField(default=False)  # False - не скрыт, True - скрыт
+    state = models.BooleanField(default=True)  # True - активный работник, False - уволен, не работает
+    moreInfo = models.CharField(max_length=200, null=True)
+
 
     def __str__(self):
         return "Other user: {}, phone {}".format(self.display_name, self.inner_phone)
