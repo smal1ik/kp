@@ -27,7 +27,7 @@ class UserSetting(models.Model):
 class Worker(models.Model):
     # user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     # id = integer NOT NULL PRIMARY KEY AUTOINCREMENT,
-
+    # Сделать бекап
     display_name = models.CharField(max_length=200) # отображаемое ФИО` varchar(200) DEFAULT '0',
     last_name = models.CharField(max_length=200) # фамлия` varchar(200) DEFAULT '0',
     first_name = models.CharField(max_length=200) # имя` varchar(200) DEFAULT '0',

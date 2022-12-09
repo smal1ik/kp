@@ -23,7 +23,7 @@ urlpatterns = [
     path('other_workers/all/', OtherWorkerListView.as_view()),
 
     path('user_settings/all/', UserSettingsListView.as_view()),
-    path('user_settings/update/<int:pk>', UserSettingsUpdateView.as_view()),
+    path('user_settings/update/<int:pk>/', UserSettingsUpdateView.as_view()),
     path('user_settings/<int:pk>/', UserSettingsRetrieveView.as_view()),
     path('user_settings/new/', UserSettingsCreateView.as_view()),
 
@@ -35,12 +35,12 @@ urlpatterns = [
     
     path('service/for_me/', AppServiceForUserView.as_view()),
     path('service/all/', AppServiceListView.as_view()), 
-    path('service/update/<int:pk>', AppServiceUpdateView.as_view()),
+    path('service/update/<int:pk>/', AppServiceUpdateView.as_view()),
     path('service/<int:pk>/', AppServiceRetrieveView.as_view()),
     path('service/new/', AppServiceCreateView.as_view()),
 
     path('posts/all/', PostsListView.as_view()),
-    path('posts/update/<int:pk>', PostsUpdateView.as_view()),
+    path('posts/update/<int:pk>/', PostsUpdateView.as_view()),
     path('posts/<int:pk>/', PostsRetrieveView.as_view()),
     path('posts/new/', PostsCreateView.as_view()),
     path('posts/delete/<int:pk>/', PostsDeleteView.as_view()),
