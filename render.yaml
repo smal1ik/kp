@@ -2,11 +2,11 @@ services:
 - type: web
   name: kpback
   env: python
-#  buildCommand: "./build.sh"        # ensure it's a string
+  buildCommand: "./build.sh"        # ensure it's a string
   startCommand: cd backend && gunicorn kpportal.wsgi:application
   repo: https://github.com/smal1ik/kp # optional
   # plan: standard # optional
-#  healthCheckPath: /
+  healthCheckPath: /
   # autoDeploy: false             # optional
   envVars:
   - key: DJANGO_SECRET_KEY
