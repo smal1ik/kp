@@ -3,7 +3,7 @@ services:
   name: kpback
   env: python
   buildCommand: "./build.sh"        # ensure it's a string
-  startCommand: cd backend && gunicorn kpportal.wsgi:application
+  startCommand: cd backend && gunicorn kportal.wsgi:application
   repo: https://github.com/smal1ik/kp # optional
   # plan: standard # optional
   healthCheckPath: /
