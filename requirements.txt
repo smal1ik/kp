@@ -1,6 +1,6 @@
 Django
 gunicorn
 djangorestframework
-djangorestframework-simplejwt
+djangorestframework-simplejwt==4.3.0
 djoser
 django-cors-headers
