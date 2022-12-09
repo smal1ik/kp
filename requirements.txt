@@ -3,4 +3,4 @@ gunicorn
 djangorestframework
 djangorestframework-simplejwt
 djoser
-corsheaders
+django-cors-headers
