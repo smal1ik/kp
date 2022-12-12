@@ -41,9 +41,6 @@ class Worker(models.Model):
     account_name = models.CharField(max_length=200, null=True)  # логин` varchar(200) DEFAULT '0',
     birth_date = models.CharField(max_length=200, null=True)  # день рождения` varchar(200) DEFAULT '0',
     room = models.CharField(max_length=50, null=True) # кабинет` varchar(50) DEFAULT '0',
-    state = models.BooleanField(default=True)  # True - активный работник, False - уволен, не работает
-    isHidden = models.BooleanField(default=False)# False - не скрыт, True - скрыт
-    moreInfo = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         print(self.display_name)
@@ -74,9 +71,6 @@ class OtherWorker(models.Model):
     room = models.CharField(max_length=50, null=True)  # кабинет` varchar(50) DEFAULT '0',
     birth_date = models.CharField(max_length=200, null=True)  # день рождения` varchar(200) DEFAULT '0',
     account_name = models.CharField(max_length=200, null=True)  # логин` varchar(200) DEFAULT '0',
-    isHidden = models.BooleanField(default=False)  # False - не скрыт, True - скрыт
-    state = models.BooleanField(default=True)  # True - активный работник, False - уволен, не работает
-    moreInfo = models.CharField(max_length=200, null=True)
 
 
     def __str__(self):
